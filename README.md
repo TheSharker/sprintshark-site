@@ -1,2 +1,2 @@
 # sprintshark-site
-place holder shite for SprintShark
+place holder for SprintShark
