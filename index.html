@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SprintShark — Business Consulting | East Cork</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f9f9f7;
+    --surface: #ffffff;
+    --ink: #0f0f0e;
+    --ink-mid: #4a4a48;
+    --ink-muted: #9a9a96;
+    --accent: #0a7c6e;
+    --accent-light: #e6f4f1;
+    --accent-hover: #085f54;
+    --border: #e8e8e4;
+    --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+  }
+
+  html, body {
+    height: 100%;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 56px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    animation: fadeDown 0.5s ease both;
+  }
+
+  .logo {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: -0.3px;
+    color: var(--ink);
+  }
+
+  .logo span { color: var(--accent); }
+
+  .nav-location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--ink-muted);
+    letter-spacing: 0.02em;
+  }
+
+  .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.7;
+  }
+
+  /* HERO */
+  .hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 32px 80px;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 32px;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(2.6rem, 5.5vw, 4rem);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    max-width: 680px;
+    margin-bottom: 24px;
+    color: var(--ink);
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+  }
+
+  .sub {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--ink-mid);
+    max-width: 460px;
+    line-height: 1.75;
+    margin-bottom: 56px;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  /* SERVICES */
+  .services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 56px;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+
+  .service-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: var(--shadow);
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+
+  .service-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 20px rgba(10,124,110,0.1);
+  }
+
+  .service-icon {
+    width: 36px; height: 36px;
+    background: var(--accent-light);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .service-label {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  /* CTA */
+  .cta-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeUp 0.6s 0.5s ease both;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+  }
+
+  .email-quiet {
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.04em;
+  }
+
+  /* DIVIDER */
+  .divider {
+    width: 1px;
+    height: 20px;
+    background: var(--border);
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 24px 48px;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.02em;
+    animation: fadeUp 0.6s 0.6s ease both;
+  }
+
+  footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  footer a:hover { text-decoration: underline; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 20px 24px; }
+    h1  { font-size: 2.2rem; }
+    .service-card .service-label { white-space: normal; }
+    .divider { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav>
+    <div class="logo">Sprint<span>Shark</span></div>
+    <div class="nav-location"><div class="dot"></div> East Cork, Ireland</div>
+  </nav>
+
+  <section class="hero">
+    <div class="tag">&#x2022; Now serving East Cork businesses</div>
+
+    <h1>Smarter tools.<br><em>Clearer outcomes.</em></h1>
+
+    <p class="sub">SprintShark helps East Cork businesses make better decisions — through sharp data insight, dependable IT, and practical consulting.</p>
+
+    <div class="services">
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <span class="service-label">Power BI &amp; Data Insights</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛠️</div>
+        <span class="service-label">IT Support &amp; Service Management</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎯</div>
+        <span class="service-label">Business Consulting</span>
+      </div>
+    </div>
+
+    <div class="cta-group">
+      <a href="https://mail.google.com/mail/?view=cm&to=info@sprintshark.com" target="_blank" class="btn-primary">Get in Touch</a>
+      <div class="divider"></div>
+      <span class="email-quiet">info [at] sprintshark.com</span>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 SprintShark &nbsp;&middot;&nbsp; East Cork, Ireland &nbsp;&middot;&nbsp; <a href="mailto:info@sprintshark.com">info@sprintshark.com</a>
+  </footer>
+
+</div>
+</body>
+</html>
